@@ -29,7 +29,7 @@ module.exports = {
     const title = req.body.title;
     const categories = req.body.categories;
     const content = req.body.content;
-    // const authorId = user._id;
+    const authorId = user._id;
     const authorName = req.body.username;
     const time = Date.now();
 
@@ -44,7 +44,7 @@ module.exports = {
       title: title,
       categories: _.uniq(categories.split(',').map((item) => item.trim())),
       content: content,
-      // authorId: authorId,
+      authorId: authorId,
       authorName: authorName,
       time: time,
     });
