@@ -16,7 +16,7 @@ const requireSignin = passport.authenticate('local', { session: false });
 //   fetchPostByAuthorId
 // } = require('../controllers/blog')
 
-router.get('/posts', requireAuth, Blog.fetchPosts);
+router.get('/posts', requireSignin, Blog.fetchPosts);
 router.get('/posts/:id', requireAuth, Blog.fetchPost);
 router.get('allow_edit_or_delete/:id', requireAuth, Blog.allowUpdateOrDelete);
 router.get('/my_posts', requireAuth, Blog.fetchPostByAuthorId);
