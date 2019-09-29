@@ -3,9 +3,9 @@
 ## api
 ``` "/" ``` = Homepage
 
-```POST /register``` = Create Account
+```POST /signup``` = Create Account
 
-```POST /login ``` = Login
+```POST /signin ``` = Login
 
 ``` GET /posts``` = Show List of blog post
 
