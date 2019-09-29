@@ -2,7 +2,9 @@ const express = require('express')
 const cors = require('cors')
 
 const db = require('./config/database')
-const {PORT} = require('./config/envir')
+const {
+  PORT
+} = require('./config/envir')
 const bodyParser = require('body-parser')
 const app = express()
 
@@ -14,20 +16,22 @@ const profileRouter = require('./routes/profile')
 const commentRouter = require('./routes/comment');
 
 app.use(cors())
-app.use(bodyParser.json( {Type: '*/*'}));
+app.use(bodyParser.json({
+  Type: '*/*'
+}));
 app.use(bodyParser.urlencoded({
-  extended:true
+  extended: true
 }));
 
 
-db.then(()=> {
-  console.log(`connected to database`);
-})
-.catch(error => {
-  console.log('error')
-})
+db.then(() => {
+    console.log(`connected to database`);
+  })
+  .catch(error => {
+    console.log('error')
+  })
 
-app.get('/', (req, res)=> res.send(`welcome`))
+app.get('/', (req, res) => res.send(`welcome`))
 app.use('/', userRouter);
 app.use('/', blogRouter);
 app.use('/', profileRouter);
