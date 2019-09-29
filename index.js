@@ -10,6 +10,7 @@ const port = PORT || 3000
 const accountRouter = require('./routes/account')
 const blogRouter = require('./routes/blog');
 const userRouter = require('./routes/user')
+const profileRouter = require('./routes/profile')
 
 app.use(cors())
 app.use(bodyParser.json( {Type: '*/*'}));
@@ -29,6 +30,7 @@ app.get('/', (req, res)=> res.send(`welcome`))
 app.use('/', userRouter);
 app.use('/', blogRouter)
 app.use('/', accountRouter)
+app.use('/', profileRouter)
 
 app.listen(port, () => {
   console.log(`sukses berjalan di port ${port}`)
