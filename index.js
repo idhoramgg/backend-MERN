@@ -5,9 +5,8 @@ const db = require('./config/database')
 const {PORT} = require('./config/envir')
 const bodyParser = require('body-parser')
 const app = express()
-const port = PORT || 3000
+const port = PORT || 4000
 
-const accountRouter = require('./routes/account')
 const blogRouter = require('./routes/blog');
 const userRouter = require('./routes/user')
 const profileRouter = require('./routes/profile')
@@ -29,7 +28,6 @@ db.then(()=> {
 app.get('/', (req, res)=> res.send(`welcome`))
 app.use('/', userRouter);
 app.use('/', blogRouter)
-app.use('/', accountRouter)
 app.use('/', profileRouter)
 
 app.listen(port, () => {
