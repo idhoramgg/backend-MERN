@@ -25,7 +25,6 @@ module.exports = {
   },
   // create new post
   createPost: (req, res, next) =>{
-    
     const _id = jwt.decode(req.headers.authorization, "secretcode")
 
     const title = req.body.title;
