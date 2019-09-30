@@ -3,6 +3,7 @@ const express = require('express')
 const passport = require('passport')
 const router = express.Router()
 const requireAuth = passport.authenticate('jwt', { session: false });
+const requireSignin = passport.authenticate('local', { session: false });
 
 
 const {
@@ -11,7 +12,7 @@ const {
   Blog
 } = require('../controllers/blog')
 
-router.post('/comment/:postId', requireAuth, createComment);
+router.post('/comment/:postId', requireAuth, requireSignin ,createComment);
 router.get('/comment/:postId', fetchCommentsByPostId);
 
 module.exports = router;

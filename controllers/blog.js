@@ -227,7 +227,7 @@ module.exports = {
     // Create a new comment
     const comment = new Comment({
       content: content,
-      authorId: user._id,
+      authorId: _id.sub,
       authorName: user.firstName + ' ' + user.lastName,
       postId: postId,
       time: Date.now(),
