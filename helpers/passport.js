@@ -35,7 +35,7 @@ const jwtLogin = new JwtStrategy(jwtOptions, function(payload, done) {
 });
 
 // Setup options for local strategy
-const localOptions = { usernameField: 'email' };  // if you are looking for username, look for email (cause we use email here)
+const localOptions = { usernameField: 'email' };  // if you are looking for username, look for email
 
 // Create local strategy (authenticate user with email and password)
 const localLogin = new LocalStrategy(localOptions, function(email, password, done) {

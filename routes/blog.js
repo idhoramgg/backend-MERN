@@ -20,7 +20,7 @@ router.get('/posts', Blog.fetchPosts);
 router.get('/posts/:id', Blog.fetchPost);
 router.get('allow_edit_or_delete/:id', requireAuth, Blog.allowUpdateOrDelete);
 router.get('/my_posts', requireAuth, Blog.fetchPostByAuthorId);
-router.post('/posts', requireAuth, Blog.createPost);
+router.post('/posts', Blog.createPost);
 router.put('/posts/:id', requireAuth, Blog.updatePost);
 router.delete('/posts/:id', requireAuth, Blog.deletePost);
 
