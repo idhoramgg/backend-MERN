@@ -1,6 +1,7 @@
 let _ = require('lodash');
 const Post = require('../models/post')
 const Comment = require('../models/comment')
+const jwt = require("jwt-simple")
 
 module.exports = {
   // get list post
@@ -24,12 +25,13 @@ module.exports = {
   },
   // create new post
   createPost: (req, res, next) =>{
-    const user = req.user;
+    
+    const _id = jwt.decode(req.headers.authorization, "secretcode")
 
     const title = req.body.title;
     const categories = req.body.categories;
     const content = req.body.content;
-    const authorId = user._id;
+    const authorId = _id.sub
     const authorName = req.body.username;
     const time = Date.now();
 
